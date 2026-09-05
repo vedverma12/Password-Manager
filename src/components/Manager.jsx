@@ -100,6 +100,7 @@ const Manager = () => {
                                 <th className='py-2'>Site</th>
                                 <th className='py-2'>Username</th>
                                 <th className='py-2'>Password</th>
+                                <th className='py-2'>Actions</th>
                             </tr>
                         </thead>
                         <tbody className='bg-green-100'>
@@ -120,6 +121,9 @@ const Manager = () => {
                                         <div className='flex gap-1 justify-center items-center '>{item.password}
                                             <span className='cursor-pointer w-3' onClick={() => { copyText(item.password) }}><img src="copy.svg" alt="" /></span>
                                         </div>
+                                    </td>
+                                    <td className='py-2 border border-white text-center '>
+                                        
                                     </td>
                                 </tr>
                             })}
