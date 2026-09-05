@@ -89,7 +89,7 @@ const Manager = () => {
                         </div>
                     </div>
 
-                    <button onClick={savePassword} className='flex justify-center items-center bg-green-500 hover:bg-green-400 rounded-full px-8 py-2 w-fit border border-green-900'>Add Password</button>
+                    <button onClick={savePassword} className='flex justify-center items-center bg-green-500 hover:bg-green-400 rounded-full px-8 py-2 w-fit border border-green-900'>Save Password</button>
                 </div>
                 <div className="passwords">
                     <h2 className='font-bold text-2xl py-4'>Your Passwords</h2>
@@ -123,7 +123,10 @@ const Manager = () => {
                                         </div>
                                     </td>
                                     <td className='py-2 border border-white text-center '>
-                                        
+                                    <div className='flex justify-center items-center gap-2'>
+                                    <span className='cursor-pointer'><img className='w-5' src="pen-to-square-solid-full.svg" alt="" /></span>
+                                    <span className='cursor-pointer'><img className='w-5' src="trash-solid-full.svg" alt="" /></span>
+                                    </div>
                                     </td>
                                 </tr>
                             })}
