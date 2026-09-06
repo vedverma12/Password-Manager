@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import { useRef, useState } from 'react'
-
+import { v4 as uuidv4 } from 'uuid';
 
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -45,8 +45,20 @@ const Manager = () => {
     }
 
     const savePassword = () => {
-        setpasswordArray([...passwordArray, form])
-        localStorage.setItem("passwords", JSON.stringify([...passwordArray, form]))
+        setpasswordArray([...passwordArray, {...form,id: uuidv4()}])
+        localStorage.setItem("passwords", JSON.stringify([...passwordArray, {...form,id: uuidv4()}]))
+    }
+
+    const deletePassword = (id) => {
+        setpasswordArray(passwordArray.filter(item=>item.id!==id))
+        localStorage.setItem("passwords", JSON.stringify(passwordArray.filter(item=>item.id!==id))) 
+    }
+
+    const editPassword = (id) => {
+        setform(passwordArray.filter(i=>i.id===id)[0])
+        setpasswordArray(passwordArray.filter(item=>item.id!==id))
+        // setpasswordArray([...passwordArray, {...form,id: uuidv4()}])
+        // localStorage.setItem("passwords", JSON.stringify([...passwordArray, {...form,id: uuidv4()}]))
     }
 
     const handleChange = (e) => {
@@ -124,8 +136,8 @@ const Manager = () => {
                                     </td>
                                     <td className='py-2 border border-white text-center '>
                                     <div className='flex justify-center items-center gap-2'>
-                                    <span className='cursor-pointer'><img className='w-5' src="pen-to-square-solid-full.svg" alt="" /></span>
-                                    <span className='cursor-pointer'><img className='w-5' src="trash-solid-full.svg" alt="" /></span>
+                                    <span className='cursor-pointer' onClick={()=> {editPassword(item.id)}}><img className='w-5' src="pen-to-square-solid-full.svg" alt="" /></span>
+                                    <span className='cursor-pointer' onClick={()=> {deletePassword(item.id)}}><img className='w-5' src="trash-solid-full.svg" alt="" /></span>
                                     </div>
                                     </td>
                                 </tr>
