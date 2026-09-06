@@ -18,7 +18,7 @@ const Manager = () => {
     }, [])
 
     const copyText = (text) => {
-        toast('Copied to Clipboard  ', {
+        toast('Copied to Clipboard', {
             position: "top-right",
             autoClose: 5000,
             hideProgressBar: false,
@@ -45,11 +45,33 @@ const Manager = () => {
     }
 
     const savePassword = () => {
+         toast('Password Saved', {
+            position: "top-right",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: false,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "dark",
+            
+        });
         setpasswordArray([...passwordArray, {...form,id: uuidv4()}])
         localStorage.setItem("passwords", JSON.stringify([...passwordArray, {...form,id: uuidv4()}]))
     }
 
     const deletePassword = (id) => {
+         toast('Password Deleted!', {
+            position: "top-right",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: false,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "dark",
+            
+        });
         setpasswordArray(passwordArray.filter(item=>item.id!==id))
         localStorage.setItem("passwords", JSON.stringify(passwordArray.filter(item=>item.id!==id))) 
     }
