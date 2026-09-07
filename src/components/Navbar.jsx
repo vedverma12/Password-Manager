@@ -12,17 +12,10 @@ const Navbar = () => {
           <span className="text-green-500">OP/&gt;</span>
           
           </div>
-        {/* <ul >
-          <li className='flex gap-4'>
-            <a className='hover:font-bold' href="/">Home</a>
-            <a className='hover:font-bold' href="#">About</a>
-            <a className='hover:font-bold' href="#">Contact</a>
-            </li>
-        </ul> */}
-        <button className='text-white  bg-green-700 p-1  w-15 rounded-full flex gap-3 jusitfy-center items-center ring-white ring-1'>
+        <a href='https://github.com/vedverma12/Password-Manager' target='_blank' className='text-white  bg-green-700 p-1  w-15 rounded-full flex gap-3 jusitfy-center items-center ring-white ring-1'>
           <img className='invert w-8' src="github.svg" alt="" />
           <span className='font-bold'>GitHub</span>
-        </button>
+        </a>
       </div>
     </nav>
   )
